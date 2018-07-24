@@ -1,2 +1,1 @@
-# popup-image-viewer
-A popup image viewer.
+<h1 align=center>Popup Image Viewer</h1>
