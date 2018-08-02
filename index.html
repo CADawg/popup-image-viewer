@@ -3,16 +3,20 @@
     <head>
         <title>Popup Image Viewer</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/png" href="../icon.png">
     </head>
     <body>
+        <div class="home-link">
+            <a href="../"><img src="../icon.png" alt="Site logo"></a>
+        </div>
         <div class="viewer"></div>
         <div class="container">
             <h2 class="title">Image Gallery</h2>
-            <span class="description">Click / Tap the images to open a preview of it.</span>
+            <p>Click on an image to open up a bigger version of it with a darkened overlay behind it.</p>
         </div>
         <div class="h-align">
-            <div class="gallery">
-                <div class="big view" style="background-image: url(http://www.doodoo.ru/uploads/posts/2009-10/fotos-for-fun-098.jpg)"></div>
+        <div class="gallery">
+            <div class="big view" style="background-image: url(http://www.doodoo.ru/uploads/posts/2009-10/fotos-for-fun-098.jpg)"></div>
                 <div class="frame">
                     <div class="small view" style="background-image: url(https://scontent-amt2-1.cdninstagram.com/vp/11b430859c6a672b48d012ed2965be9e/5BD1BEDE/t51.2885-15/sh0.08/e35/c0.37.912.912/s640x640/32247475_1985774194765937_6762272715874238464_n.jpg)"></div>
                     <div class="small view" style="background-image: url(https://i0.wp.com/www.dfstudios.co.uk/wp-content/uploads/2014/02/lena_inv.jpg);"></div>
@@ -21,57 +25,6 @@
                 </div>
             </div>
         </div>
-        <script>
-            (function(){
-                "use strict";
-                
-                //alert('It is best to view this on desktop.');
-                
-                const closeViewer = function(){
-                    let overlay = document.getElementsByClassName('overlay')[0],
-                        window = document.getElementsByClassName('window')[0];
-
-                    overlay.classList.remove('show');
-                    window.classList.remove('show');
-
-                    setTimeout(function(){
-                        overlay.parentNode.removeChild(overlay);
-                        window.parentNode.removeChild(window);
-                    }, 200);
-                }
-
-                const imageViewer = function(){
-                    let overlay = document.createElement('div'),
-                        window = document.createElement('div'),
-                        img = document.createElement('img'),
-                        hint = document.createElement('span');
-
-                    overlay.classList.add('overlay');
-                    window.classList.add('window');
-                    
-                    img.src = this.style.backgroundImage.slice(4, -1).replace(/"/g, '');
-                    hint.className = 'description';
-                    hint.appendChild(document.createTextNode('Click / Tap outside of the image to close the preview.'));
-					
-                    window.appendChild(img);
-                    window.appendChild(hint);
-
-                    document.getElementsByClassName('viewer')[0].appendChild(overlay);
-                    document.getElementsByClassName('viewer')[0].appendChild(window);
-
-                    overlay.addEventListener('click', closeViewer);
-
-                    setTimeout(function(){
-                        overlay.classList.add('show');
-                        window.classList.add('show');
-                    }, 10);
-                }
-
-                let images = document.querySelectorAll('.view');
-                images.forEach(function(img){
-                    img.addEventListener('click', imageViewer); 
-                });
-            })();
-        </script>
+        <script src="viewer.js"></script>
     </body>
 </html>

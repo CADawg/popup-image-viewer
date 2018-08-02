@@ -2,12 +2,14 @@
     box-sizing: border-box;
 }
 
+html {
+    min-height: 100vh;
+}
+
 body {
-    background-color: #343a40;
+    background-image: linear-gradient(to right bottom, #020812, #00090e, #000808, #000603, #030401);
     color: #d7d7d7;
-    font-family: arial, sans-serif;
-    font-size: 1rem;
-    font-weight: normal;
+    font: normal 1rem steagisler, arial, sans-serif;
     margin: 0;
 }
 
@@ -16,6 +18,10 @@ h1, h2, p {
 }
 
 /*Containers*/
+.home-link {
+    padding: 2rem;
+}
+
 .container {
     margin-left: auto;
     margin-right: auto;
@@ -31,23 +37,15 @@ h1, h2, p {
 .title {
     align-items: center;
     color: #fff;
-    display: flex;
     font-weight: inherit;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: .5rem;
 	margin-top: 1rem;
-    justify-content: center;
-}
-
-.title::after {
-    background-color: #fff;
-    content: '';
-    height: 1px;
-    flex: 1;
-    margin-left: .5rem;
+    text-align: center;
 }
 
 .description {
+    font-family: arial;
     font-style: oblique;
     font-size: .75rem;
 }
